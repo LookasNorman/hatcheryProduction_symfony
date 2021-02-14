@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Breeders;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,9 +14,11 @@ class BreedersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('email')
-            ->add('phoneNumber')
+            ->add('name', TextType::class)
+            ->add('email', EmailType::class)
+            ->add('phoneNumber', TextType::class, [
+                'required' => false
+            ])
         ;
     }
 
