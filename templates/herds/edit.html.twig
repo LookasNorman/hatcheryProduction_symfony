@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Herds{% endblock %}
+
+{% block body %}
+    <h1>Edit Herds</h1>
+
+    {{ include('herds/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('herds_index') }}">back to list</a>
+
+    {{ include('herds/_delete_form.html.twig') }}
+{% endblock %}

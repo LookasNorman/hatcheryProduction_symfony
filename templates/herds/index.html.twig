@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Herds index{% endblock %}
+
+{% block body %}
+    <h1>Herds index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>HatchingDate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for herd in herds %}
+            <tr>
+                <td>{{ herd.id }}</td>
+                <td>{{ herd.name }}</td>
+                <td>{{ herd.hatchingDate ? herd.hatchingDate|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('herds_show', {'id': herd.id}) }}">show</a>
+                    <a href="{{ path('herds_edit', {'id': herd.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('herds_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Breeders index{% endblock %}
+
+{% block body %}
+    <h1>Breeders index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>PhoneNumber</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for breeder in breeders %}
+            <tr>
+                <td>{{ breeder.id }}</td>
+                <td>{{ breeder.name }}</td>
+                <td>{{ breeder.email }}</td>
+                <td>{{ breeder.phoneNumber }}</td>
+                <td>
+                    <a href="{{ path('breeders_show', {'id': breeder.id}) }}">show</a>
+                    <a href="{{ path('breeders_edit', {'id': breeder.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('breeders_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Herds{% endblock %}
+
+{% block body %}
+    <h1>Create new Herds</h1>
+
+    {{ include('herds/_form.html.twig') }}
+
+    <a href="{{ path('herds_index') }}">back to list</a>
+{% endblock %}
