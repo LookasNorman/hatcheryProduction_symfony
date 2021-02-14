@@ -17,18 +17,24 @@ class EggsDeliveryType extends AbstractType
     {
         $builder
             ->add('deliveryDate', DateType::class, [
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+                'label' => 'form.eggsDelivery.deliveryDate'
             ])
-            ->add('eggsNumber', NumberType::class)
+            ->add('eggsNumber', NumberType::class, [
+                'label' => 'form.eggsDelivery.eggsNumber'
+            ])
             ->add('startLayingDate', DateType::class, [
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+                'label' => 'form.eggsDelivery.startLayingDate'
             ])
             ->add('endLayingDate', DateType::class, [
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+                'label' => 'form.eggsDelivery.endLayingDate'
             ])
             ->add('herd', EntityType::class, [
                 'class' => Herds::class,
-                'choice_label' => 'name'
+                'choice_label' => 'name',
+                'label' => 'form.eggsDelivery.herd'
             ])
         ;
     }

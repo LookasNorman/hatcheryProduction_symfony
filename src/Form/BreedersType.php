@@ -14,10 +14,15 @@ class BreedersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('email', EmailType::class)
+            ->add('name', TextType::class, [
+                'label' => 'form.breeders.name'
+            ])
+            ->add('email', EmailType::class, [
+                'label' => 'form.breeders.email'
+            ])
             ->add('phoneNumber', TextType::class, [
-                'required' => false
+                'required' => false,
+                'label' => 'form.breeders.phoneNumber'
             ])
         ;
     }

@@ -18,13 +18,17 @@ class HerdsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class)
+            ->add('name', TextType::class, [
+                'label' => 'form.herds.name'
+            ])
             ->add('hatchingDate', DateType::class, [
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+                'label' => 'form.herds.hatchingDate'
             ])
             ->add('breeder', EntityType::class, [
                 'class' => Breeders::class,
                 'choice_label' => 'name',
+                'label' => 'form.herds.breeder',
                 'placeholder' => 'Choose an breeders name'
             ])
             ->add('breed', EntityType::class, [
@@ -32,6 +36,7 @@ class HerdsType extends AbstractType
                 'choice_label' => function(Breed $breed) {
                 return $breed->getName() . ' ' . $breed->getBreedType();
                 },
+                'label' => 'form.herds.breed',
                 'placeholder' => 'Choose an breed type'
             ])
         ;

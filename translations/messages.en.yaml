@@ -1,0 +1,19 @@
+form:
+  eggsDelivery:
+    deliveryDate: 'Set delivery date'
+    eggsNumber: 'Set delivery eggs number'
+    startLayingDate: 'Set first laying date'
+    endLayingDate: 'Set last laying date'
+    herd: 'Set herd'
+  herds:
+    name: 'Set herds name'
+    hatchingDate: 'Set herd hatching date'
+    breeder: 'Set breeders'
+    breed: 'Set breed'
+  breed:
+    name: 'Set breed name'
+    breedType: 'Set breed type name'
+  breeders:
+    name: 'Set breeders name'
+    email: 'Set breeders email'
+    phoneNumber: 'Set breeders phone number'

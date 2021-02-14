@@ -13,8 +13,12 @@ class BreedType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('breedType', TextType::class)
+            ->add('name', TextType::class, [
+                'label' => 'form.breed.name'
+            ])
+            ->add('breedType', TextType::class, [
+                'label' => 'form.breed.breedType'
+            ])
         ;
     }
 
