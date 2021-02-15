@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EggsDeliveryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,6 +44,16 @@ class EggsDelivery
      * @ORM\Column(type="date")
      */
     private $endLayingDate;
+
+    /**
+     * @ORM\OneToMany(targetEntity=EggsInputDetails::class, mappedBy="eggsDelivery")
+     */
+    private $eggsInputDetails;
+
+    public function __construct()
+    {
+        $this->eggsInputDetails = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -104,6 +116,36 @@ class EggsDelivery
     public function setEndLayingDate(\DateTimeInterface $endLayingDate): self
     {
         $this->endLayingDate = $endLayingDate;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|EggsInputDetails[]
+     */
+    public function getEggsInputDetails(): Collection
+    {
+        return $this->eggsInputDetails;
+    }
+
+    public function addEggsInputDetail(EggsInputDetails $eggsInputDetail): self
+    {
+        if (!$this->eggsInputDetails->contains($eggsInputDetail)) {
+            $this->eggsInputDetails[] = $eggsInputDetail;
+            $eggsInputDetail->setEggsDelivery($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEggsInputDetail(EggsInputDetails $eggsInputDetail): self
+    {
+        if ($this->eggsInputDetails->removeElement($eggsInputDetail)) {
+            // set the owning side to null (unless already changed)
+            if ($eggsInputDetail->getEggsDelivery() === $this) {
+                $eggsInputDetail->setEggsDelivery(null);
+            }
+        }
 
         return $this;
     }

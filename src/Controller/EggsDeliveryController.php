@@ -17,6 +17,8 @@ class EggsDeliveryController extends AbstractController
 {
     /**
      * @Route("/", name="eggs_delivery_index", methods={"GET"})
+     * @param EggsDeliveryRepository $eggsDeliveryRepository
+     * @return Response
      */
     public function index(EggsDeliveryRepository $eggsDeliveryRepository): Response
     {
@@ -27,6 +29,8 @@ class EggsDeliveryController extends AbstractController
 
     /**
      * @Route("/new", name="eggs_delivery_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class EggsDeliveryController extends AbstractController
 
     /**
      * @Route("/{id}", name="eggs_delivery_show", methods={"GET"})
+     * @param EggsDelivery $eggsDelivery
+     * @return Response
      */
     public function show(EggsDelivery $eggsDelivery): Response
     {
@@ -60,6 +66,9 @@ class EggsDeliveryController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="eggs_delivery_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param EggsDelivery $eggsDelivery
+     * @return Response
      */
     public function edit(Request $request, EggsDelivery $eggsDelivery): Response
     {
@@ -80,6 +89,9 @@ class EggsDeliveryController extends AbstractController
 
     /**
      * @Route("/{id}", name="eggs_delivery_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param EggsDelivery $eggsDelivery
+     * @return Response
      */
     public function delete(Request $request, EggsDelivery $eggsDelivery): Response
     {
