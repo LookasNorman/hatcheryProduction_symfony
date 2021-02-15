@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EggsInput index{% endblock %}
+
+{% block body %}
+    <h1>EggsInput index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>InputDate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for eggs_input in eggs_inputs %}
+            <tr>
+                <td>{{ eggs_input.id }}</td>
+                <td>{{ eggs_input.name }}</td>
+                <td>{{ eggs_input.inputDate ? eggs_input.inputDate|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('eggs_input_show', {'id': eggs_input.id}) }}">show</a>
+                    <a href="{{ path('eggs_input_edit', {'id': eggs_input.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('eggs_input_new') }}">Create new</a>
+{% endblock %}

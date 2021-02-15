@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ChickRecipient{% endblock %}
+
+{% block body %}
+    <h1>Edit ChickRecipient</h1>
+
+    {{ include('chick_recipient/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('chick_recipient_index') }}">back to list</a>
+
+    {{ include('chick_recipient/_delete_form.html.twig') }}
+{% endblock %}

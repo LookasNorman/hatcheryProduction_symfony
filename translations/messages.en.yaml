@@ -17,3 +17,22 @@ form:
     name: 'Set breeders name'
     email: 'Set breeders email'
     phoneNumber: 'Set breeders phone number'
+  chickRecipient:
+    name: 'Set recipient name'
+    emaol: 'Set recipient email'
+    phoneNumber: 'Set recipient phone number'
+  eggsInput:
+    name: 'Set eggs input name'
+    date: 'Set eggs input date'
+  eggsInputDetails:
+    eggsNumber: 'Set eggs number'
+    chickNumber: 'Set chick number'
+    eggsInput:
+      label: 'Set eggs input'
+      placeholder: 'Choose an eggs input'
+    eggsDelivery:
+      label: 'Set eggs delivery'
+      placeholder: 'Choose an eggs delivery'
+    chickRecipient:
+      label: 'Set chick recipient'
+      placeholder: 'Choose an chick recipient'

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New EggsInput{% endblock %}
+
+{% block body %}
+    <h1>Create new EggsInput</h1>
+
+    {{ include('eggs_input/_form.html.twig') }}
+
+    <a href="{{ path('eggs_input_index') }}">back to list</a>
+{% endblock %}
