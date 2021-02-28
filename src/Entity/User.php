@@ -10,7 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}
+ * @UniqueEntity(fields={"email"})
  * @ApiResource()
  */
 class User implements UserInterface
