@@ -13,7 +13,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Entity(repositoryClass=EggsDeliveryRepository::class)
  * @ApiResource(
  *     collectionOperations={
- *          "get"
+ *          "get", "post"
  *     },
  *     normalizationContext={
  *          "groups"={"get_eggs_delivery"}
