@@ -7,10 +7,18 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=EggsDeliveryRepository::class)
- * @ApiResource()
+ * @ApiResource(
+ *     collectionOperations={
+ *          "get"
+ *     },
+ *     normalizationContext={
+ *          "groups"={"get_eggs_delivery"}
+ *     }
+ * )
  */
 class EggsDelivery
 {
@@ -18,32 +26,38 @@ class EggsDelivery
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"get_eggs_delivery"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="date")
+     * @Groups({"get_eggs_delivery"})
      */
     private $deliveryDate;
 
     /**
      * @ORM\ManyToOne(targetEntity=Herds::class, inversedBy="eggsDeliveries")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"get_eggs_delivery"})
      */
     private $herd;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"get_eggs_delivery"})
      */
     private $eggsNumber;
 
     /**
      * @ORM\Column(type="date")
+     * @Groups({"get_eggs_delivery"})
      */
     private $startLayingDate;
 
     /**
      * @ORM\Column(type="date")
+     * @Groups({"get_eggs_delivery"})
      */
     private $endLayingDate;
 
