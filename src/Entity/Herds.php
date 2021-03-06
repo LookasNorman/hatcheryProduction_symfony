@@ -32,7 +32,7 @@ class Herds
     /**
      * @ORM\ManyToOne(targetEntity=Breeders::class, inversedBy="herds")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"get_eggs_delivery"})
+     * @Groups({"get_eggs_delivery", "get_eggs_inputs"})
      */
     private $breeder;
 

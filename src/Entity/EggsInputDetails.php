@@ -17,6 +17,7 @@ class EggsInputDetails
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"get_eggs_inputs"})
      */
     private $id;
 
@@ -30,12 +31,13 @@ class EggsInputDetails
     /**
      * @ORM\ManyToOne(targetEntity=EggsDelivery::class, inversedBy="eggsInputDetails")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"get_eggs_inputs"})
      */
     private $eggsDelivery;
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups({"get_eggs_delivery"})
+     * @Groups({"get_eggs_delivery", "get_eggs_inputs"})
      */
     private $eggsNumber;
 

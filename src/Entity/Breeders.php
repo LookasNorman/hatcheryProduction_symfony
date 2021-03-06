@@ -25,7 +25,7 @@ class Breeders
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"get_eggs_delivery"})
+     * @Groups({"get_eggs_delivery", "get_eggs_inputs"})
      */
     private $name;
 

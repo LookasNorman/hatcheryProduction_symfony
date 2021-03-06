@@ -11,7 +11,14 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=EggsInputRepository::class)
- * @ApiResource()
+ * @ApiResource(
+ *     collectionOperations={
+ *          "get", "post"
+ *     },
+ *     normalizationContext={
+ *          "groups"={"get_eggs_inputs"}
+ *     }
+ * )
  */
 class EggsInput
 {
@@ -24,18 +31,19 @@ class EggsInput
 
     /**
      * @ORM\Column(type="string", length=15)
-     * @Groups({"get_eggs_delivery"})
+     * @Groups({"get_eggs_delivery", "get_eggs_inputs"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="date")
-     * @Groups({"get_eggs_delivery"})
+     * @Groups({"get_eggs_delivery", "get_eggs_inputs"})
      */
     private $inputDate;
 
     /**
      * @ORM\OneToMany(targetEntity=EggsInputDetails::class, mappedBy="eggsInput")
+     * @Groups({"get_eggs_inputs"})
      */
     private $eggsInputDetails;
 
