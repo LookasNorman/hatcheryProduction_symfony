@@ -26,6 +26,7 @@ class EggsInput
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"get_eggs_inputs"})
      */
     private $id;
 
