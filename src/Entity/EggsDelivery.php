@@ -63,6 +63,7 @@ class EggsDelivery
 
     /**
      * @ORM\OneToMany(targetEntity=EggsInputDetails::class, mappedBy="eggsDelivery")
+     * @Groups({"get_eggs_delivery"})
      */
     private $eggsInputDetails;
 

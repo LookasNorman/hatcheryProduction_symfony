@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\EggsInputDetailsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=EggsInputDetailsRepository::class)
@@ -22,6 +23,7 @@ class EggsInputDetails
     /**
      * @ORM\ManyToOne(targetEntity=EggsInput::class, inversedBy="eggsInputDetails")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"get_eggs_delivery"})
      */
     private $eggsInput;
 
@@ -33,6 +35,7 @@ class EggsInputDetails
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"get_eggs_delivery"})
      */
     private $eggsNumber;
 
@@ -111,4 +114,5 @@ class EggsInputDetails
 
         return $this;
     }
+
 }

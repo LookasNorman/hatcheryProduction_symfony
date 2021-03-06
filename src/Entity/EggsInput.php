@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=EggsInputRepository::class)
@@ -23,11 +24,13 @@ class EggsInput
 
     /**
      * @ORM\Column(type="string", length=15)
+     * @Groups({"get_eggs_delivery"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="date")
+     * @Groups({"get_eggs_delivery"})
      */
     private $inputDate;
 
