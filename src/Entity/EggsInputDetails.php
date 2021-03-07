@@ -57,6 +57,11 @@ class EggsInputDetails
      */
     private $setter;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=HatchersIncubator::class, inversedBy="eggsInputDetails")
+     */
+    private $hatcher;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -130,6 +135,18 @@ class EggsInputDetails
     public function setSetter(?SettersIncubator $setter): self
     {
         $this->setter = $setter;
+
+        return $this;
+    }
+
+    public function getHatcher(): ?HatchersIncubator
+    {
+        return $this->hatcher;
+    }
+
+    public function setHatcher(?HatchersIncubator $hatcher): self
+    {
+        $this->hatcher = $hatcher;
 
         return $this;
     }
