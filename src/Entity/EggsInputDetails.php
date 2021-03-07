@@ -54,11 +54,13 @@ class EggsInputDetails
 
     /**
      * @ORM\ManyToOne(targetEntity=SettersIncubator::class, inversedBy="eggsInputDetails")
+     * @Groups({"get_eggs_inputs"})
      */
     private $setter;
 
     /**
      * @ORM\ManyToOne(targetEntity=HatchersIncubator::class, inversedBy="eggsInputDetails")
+     * @Groups({"get_eggs_inputs"})
      */
     private $hatcher;
 
