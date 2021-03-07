@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EggsInputDetailsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -63,6 +65,16 @@ class EggsInputDetails
      * @Groups({"get_eggs_inputs"})
      */
     private $hatcher;
+
+    /**
+     * @ORM\OneToMany(targetEntity=DeliveryWasteEggs::class, mappedBy="deliveryInput")
+     */
+    private $deliveryWasteEggs;
+
+    public function __construct()
+    {
+        $this->deliveryWasteEggs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -149,6 +161,36 @@ class EggsInputDetails
     public function setHatcher(?HatchersIncubator $hatcher): self
     {
         $this->hatcher = $hatcher;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|DeliveryWasteEggs[]
+     */
+    public function getDeliveryWasteEggs(): Collection
+    {
+        return $this->deliveryWasteEggs;
+    }
+
+    public function addDeliveryWasteEgg(DeliveryWasteEggs $deliveryWasteEgg): self
+    {
+        if (!$this->deliveryWasteEggs->contains($deliveryWasteEgg)) {
+            $this->deliveryWasteEggs[] = $deliveryWasteEgg;
+            $deliveryWasteEgg->setDeliveryInput($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDeliveryWasteEgg(DeliveryWasteEggs $deliveryWasteEgg): self
+    {
+        if ($this->deliveryWasteEggs->removeElement($deliveryWasteEgg)) {
+            // set the owning side to null (unless already changed)
+            if ($deliveryWasteEgg->getDeliveryInput() === $this) {
+                $deliveryWasteEgg->setDeliveryInput(null);
+            }
+        }
 
         return $this;
     }
