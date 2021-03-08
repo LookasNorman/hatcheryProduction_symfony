@@ -78,10 +78,16 @@ class EggsInputDetails
      */
     private $wasteEggsLighting;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ChickOutput::class, mappedBy="eggsInputDetails")
+     */
+    private $chickOutputs;
+
     public function __construct()
     {
         $this->deliveryWasteEggs = new ArrayCollection();
         $this->wasteEggsLighting = new ArrayCollection();
+        $this->chickOutputs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -227,6 +233,36 @@ class EggsInputDetails
             // set the owning side to null (unless already changed)
             if ($evaluationDate->getDeliveryInput() === $this) {
                 $evaluationDate->setDeliveryInput(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ChickOutput[]
+     */
+    public function getChickOutputs(): Collection
+    {
+        return $this->chickOutputs;
+    }
+
+    public function addChickOutput(ChickOutput $chickOutput): self
+    {
+        if (!$this->chickOutputs->contains($chickOutput)) {
+            $this->chickOutputs[] = $chickOutput;
+            $chickOutput->setEggsInputDetails($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChickOutput(ChickOutput $chickOutput): self
+    {
+        if ($this->chickOutputs->removeElement($chickOutput)) {
+            // set the owning side to null (unless already changed)
+            if ($chickOutput->getEggsInputDetails() === $this) {
+                $chickOutput->setEggsInputDetails(null);
             }
         }
 
