@@ -74,6 +74,7 @@ class EggsInputDetails
 
     /**
      * @ORM\OneToMany(targetEntity=WasteEggsLighting::class, mappedBy="deliveryInput")
+     * @Groups({"get_eggs_inputs"})
      */
     private $wasteEggsLighting;
 
