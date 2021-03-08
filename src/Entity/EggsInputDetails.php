@@ -80,6 +80,7 @@ class EggsInputDetails
 
     /**
      * @ORM\OneToMany(targetEntity=ChickOutput::class, mappedBy="eggsInputDetails")
+     * @Groups({"get_eggs_inputs"})
      */
     private $chickOutputs;
 

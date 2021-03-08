@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ChickOutputRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
@@ -26,16 +27,19 @@ class ChickOutput
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"get_eggs_inputs"})
      */
     private $hatching;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"get_eggs_inputs"})
      */
     private $missing;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"get_eggs_inputs"})
      */
     private $unhatchedEggs;
 
