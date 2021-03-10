@@ -37,12 +37,6 @@ class ChickOutput
      */
     private $missing;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @Groups({"get_eggs_inputs"})
-     */
-    private $unhatchedEggs;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -80,18 +74,6 @@ class ChickOutput
     public function setMissing(?int $missing): self
     {
         $this->missing = $missing;
-
-        return $this;
-    }
-
-    public function getUnhatchedEggs(): ?int
-    {
-        return $this->unhatchedEggs;
-    }
-
-    public function setUnhatchedEggs(?int $unhatchedEggs): self
-    {
-        $this->unhatchedEggs = $unhatchedEggs;
 
         return $this;
     }
