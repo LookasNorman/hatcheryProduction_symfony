@@ -5,6 +5,14 @@ swager_ui:
   path: /
   controller: api_platform.swagger.action.ui
 
+todos_object:
+  path: api/eggsInputDetails/addDelivery
+  methods: 'POST'
+  defaults:
+    _controller: App\Controller\CreateDeliveryForEggsInput::addDelivery
+    _api_resource_class: App\Entity\EggsInputDetails
+    _api_collection_operation_name: add_delivery
+
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index

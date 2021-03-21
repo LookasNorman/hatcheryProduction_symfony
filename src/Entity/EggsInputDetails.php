@@ -11,7 +11,15 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=EggsInputDetailsRepository::class)
- * @ApiResource()
+ * @ApiResource(
+ *     collectionOperations={
+ *          "get",
+ *          "post",
+ *          "add_delivery"={
+ *              "method"="post"
+ *          }
+ *     }
+ * )
  */
 class EggsInputDetails
 {

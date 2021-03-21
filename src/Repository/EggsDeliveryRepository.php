@@ -19,6 +19,20 @@ class EggsDeliveryRepository extends ServiceEntityRepository
         parent::__construct($registry, EggsDelivery::class);
     }
 
+
+    public function warehouseEggs($herd)
+    {
+        return $this->createQueryBuilder('ed')
+            ->select('ed.id', 'ed.eggsNumber', 'SUM(eid.eggsNumber) as eggs')
+            ->leftJoin('ed.eggsInputDetails', 'eid')
+            ->where('ed.herd = :herd')
+            ->setParameter('herd', $herd)
+            ->groupBy('ed.id')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return EggsDelivery[] Returns an array of EggsDelivery objects
     //  */
