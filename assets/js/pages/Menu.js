@@ -37,7 +37,7 @@ export default function Menu() {
             <Divider/>
             <List>
                 {[
-                    {title: 'Odbiorcy', icon: <LocationOn/>, path: '/recipient'},
+                    {title: 'Odbiorcy', icon: <LocationOn/>, path: '/recipients'},
                 ].map((item, index) => (
                     <MenuItem key={index} item={item}/>
                 ))}

@@ -10,6 +10,8 @@ import UnderConstruction from "../components/basic/UnderConstruction";
 import EggsInputsListContainer from "../container/eggsInputs/EggsInputsListContainer";
 import NewDelivery from "../components/eggsDeliveries/NewDelivery";
 import EggsInputContainer from "../container/eggsInputs/EggsInputContainer";
+import ChickRecipientsListContainer from "../container/chickRecipients/ChickRecipientsListContainer";
+import ChickRecipientContainer from "../container/chickRecipients/ChickRecipientContainer";
 
 class MainPage extends Component {
     constructor(props) {
@@ -25,6 +27,8 @@ class MainPage extends Component {
                 <Route path='/login' component={LoginForm} />
                 <Route path='/suppliers' component={BreedersListContainer} />
                 <Route path='/supplier/:id' component={BreederContainer} />
+                <Route path='/recipients' component={ChickRecipientsListContainer} />
+                <Route path='/recipient/:id' component={ChickRecipientContainer} />
                 <Route path='/herd/:id' component={HerdContainer} />
                 <Route path='/outlays' component={EggsInputsListContainer} />
                 <Route path='/outlay/:id' component={EggsInputContainer} />
