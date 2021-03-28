@@ -30,9 +30,8 @@ class CreateDeliveryForEggsInput extends AbstractController
 
         $result = null;
         $eggs = null;
-        foreach ($post as $herd){
-            $deliveries = $eggsDeliveryRepository->warehouseEggs($herd['breederId']);
-            $eggs = $herd['eggs'];
+            $deliveries = $eggsDeliveryRepository->warehouseEggs(intval($post['breederId']));
+            $eggs = $post['eggs'];
             foreach ($deliveries as $delivery){
                 $eggsState = $delivery['eggsNumber'] - $delivery['eggs'];
                 if($eggs > 0){
@@ -45,18 +44,17 @@ class CreateDeliveryForEggsInput extends AbstractController
                     $eggs = $eggs - $eggsNumber;
                     if($eggsNumber > 0) {
                         $eggsInputDetails = new EggsInputDetails();
-                        $eggsInputDetails->setEggsInput($eggsInputRepository->find($herd['eggsInput']));
+                        $eggsInputDetails->setEggsInput($eggsInputRepository->find($post['eggsInput']));
                         $eggsInputDetails->setEggsDelivery($eggsDeliveryRepository->find($delivery['id']));
                         $eggsInputDetails->setEggsNumber($eggsNumber);
-                        $eggsInputDetails->setChickNumber($herd['chickNumber']);
-                        $eggsInputDetails->setChickRecipient($chickRecipientRepository->find($herd['chickRecipient']));
+                        $eggsInputDetails->setChickNumber($post['chickNumber']);
+                        $eggsInputDetails->setChickRecipient($chickRecipientRepository->find($post['chickRecipient']));
                         $em->persist($eggsInputDetails);
                         $em->flush();
                         $result [] = $eggsInputDetails;
                     }
                 }
             }
-        }
         $data = $serializer->serialize($result, JsonEncoder::FORMAT);
         return new JsonResponse($data, Response::HTTP_OK, [], true);
 

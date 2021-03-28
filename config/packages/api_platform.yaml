@@ -7,3 +7,4 @@ api_platform:
         versions: [3]
     enable_swagger_ui: false
     enable_re_doc: false
+    allow_plain_identifiers: true

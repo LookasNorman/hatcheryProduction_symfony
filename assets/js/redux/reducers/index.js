@@ -10,6 +10,7 @@ import eggsInputsList from "./eggsInputsList";
 import eggsInput from "./eggsInput";
 import chickRecipientList from "./chickRecipientsList";
 import chickRecipient from "./chickRecipient";
+import eggsInputDetailList from "./eggsInputDetailsList";
 
 export default combineReducers({
     breeders: breedersList,
@@ -21,6 +22,7 @@ export default combineReducers({
     deliveries: eggsDeliveriesList,
     eggsInputs: eggsInputsList,
     eggsInput: eggsInput,
+    eggsInputDetails: eggsInputDetailList,
     auth,
     form: formReducer
 })
