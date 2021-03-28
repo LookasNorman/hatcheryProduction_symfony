@@ -31,7 +31,7 @@ class CreateDeliveryForEggsInput extends AbstractController
         $result = null;
         $eggs = null;
         foreach ($post as $herd){
-            $deliveries = $eggsDeliveryRepository->warehouseEggs($herd['herdId']);
+            $deliveries = $eggsDeliveryRepository->warehouseEggs($herd['breederId']);
             $eggs = $herd['eggs'];
             foreach ($deliveries as $delivery){
                 $eggsState = $delivery['eggsNumber'] - $delivery['eggs'];

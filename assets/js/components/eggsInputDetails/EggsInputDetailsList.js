@@ -6,12 +6,14 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Moment from "react-moment";
 import {PercentFormat} from "../basic/PercentFormat";
+import NewEggsInputDetails from "./NewEggsInputDetails";
 
 export function EggsInputDetailsList(props) {
     const {eggsInputDetails} = props;
 
     return (
         <React.Fragment>
+            <NewEggsInputDetails eggsInputDetails={eggsInputDetails}/>
             <Table size="small" aria-label="purchases">
                 <TableHead>
                     <TableRow>
