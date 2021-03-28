@@ -2,7 +2,7 @@ api_login_check:
   path: /api/login_check
 
 swager_ui:
-  path: /
+  path: /docs
   controller: api_platform.swagger.action.ui
 
 todos_object:

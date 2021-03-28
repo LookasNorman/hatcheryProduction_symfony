@@ -27,7 +27,7 @@ class WasteEggsLighting
     private $eggsNumber;
 
     /**
-     * @ORM\ManyToOne(targetEntity=EggsInputDetails::class, inversedBy="evaluationDate")
+     * @ORM\ManyToOne(targetEntity=EggsInputDetails::class, inversedBy="wasteEggsLighting")
      */
     private $deliveryInput;
 
